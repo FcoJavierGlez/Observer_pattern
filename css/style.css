@@ -1,0 +1,86 @@
+/* :root {
+
+} */
+
+* {
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+}
+
+h1 {
+    *border: 2px solid black;
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+main {
+    *display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.chat-box {
+    border: 2px solid black;
+    *flex-grow: 1;
+    height: 70vh;
+}
+.chat-box:nth-child(1) {
+    background-color: lightblue;
+}
+.chat-box:nth-child(2) {
+    background-color: lightcoral;
+}
+.chat-box:nth-child(3) {
+    background-color: lightgreen;
+}
+.chat-box:nth-child(4) {
+    background-color: lightsalmon;
+}
+
+.chat {
+    background-color: ghostwhite;
+    border: 1px solid black;
+    height: 45vh;
+    margin: 0 auto;
+    overflow-y: auto;
+    width: 95%;
+}
+.chat::-webkit-scrollbar {
+    display: none;
+}
+
+.chat-box textarea {
+    background-color: lightgrey;
+    display: block;
+    height: 15vh;
+    margin: 0 auto;
+    padding: 0;
+    resize: none;
+    width: 95%;
+}
+.chat-box textarea:hover {
+    background-color: white;
+    cursor: pointer;
+}
+.chat-box textarea:focus {
+    background-color: white;
+    outline: none;
+}
+
+p {
+    padding: 0 4px;
+    margin: 6px 0;
+}
+p.careless-whisper {
+    color: deeppink;
+}
+
+.user-name {
+    font-weight: bold;
+}
