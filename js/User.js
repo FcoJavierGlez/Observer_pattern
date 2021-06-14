@@ -26,7 +26,8 @@ class User {
     }
 
     update = function( message ) {
-        if ( message.to == '' || message.to !== '' && (message.from == this._name || message.to == this._name) ) {
+        //If this message have not a recipient or message is sending by this user or this user is a recipient
+        if ( message.to == '' || message.to !== '' && ( message.from == this._name || message.to.match(this._name) ) ) {
             this._messagesList.push( message );
             this.toggleUpdate();
         }
