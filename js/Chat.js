@@ -17,11 +17,16 @@ class Chat {
     }
 
     setMessage = function(message) {
+        let date = new Date();
+        message.time = `${this._formatDate( date.getHours() )}:${this._formatDate( date.getMinutes() )}:${this._formatDate( date.getSeconds() )}`;
         this._messagesList.push( message );
         this._notify();
+        console.log(message);
     }
 
     _notify = function() {
         this._observerList.forEach( e => e.update( this._messagesList[ this._messagesList.length - 1 ] ) );
     }
+
+    _formatDate = date => date < 10 ? `0${date}` : date;
 }

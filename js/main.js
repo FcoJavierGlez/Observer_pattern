@@ -1,6 +1,4 @@
 {
-    const formatDate = date => date < 10 ? `0${date}` : date;
-
     const capitalize = string => string.replace(/^\w/, e => e.toUpperCase() );
 
     const createMessageChat = user => {
@@ -33,7 +31,7 @@
 
         chat = new Chat( usersList );
 
-        const updateChats = function() {
+        const renderChats = function() {
             CHATBOXES.forEach( (e,i) => {
                 const CHAT = e.querySelector('.chat');
                 if ( usersList[i].getUpdate() ) {
@@ -49,19 +47,17 @@
                 if (ev.code == 'Enter') {
                     ev.preventDefault();
                     if (this.value == '') return;
-                    let date = new Date();
                     let numberChat = TEXTAREAS.indexOf(this);
                     let destine;
                     chat.setMessage( 
                         {
-                            time: `${formatDate( date.getHours() )}:${formatDate( date.getMinutes() )}:${formatDate( date.getSeconds() )}`,
                             from: usersList[numberChat].getName(),
                             to: (destine = this.value.match(/\@(\w+)\s/)?.[1]) == undefined ? '' : destine,
                             message: destine == undefined ? this.value : this.value.match(/\@\w+\s(.+)/)?.[1],
                         } 
                     );
                     this.value = "";
-                    updateChats();
+                    renderChats();
                 }
             });
         });
