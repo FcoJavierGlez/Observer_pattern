@@ -44,7 +44,7 @@
         //Al pulsar intro se envía el mensaje y se renderiza en todos los observadores
         TEXTAREAS.forEach( e => {
             e.addEventListener("keydown", function(ev) {
-                if (ev.code == 'Enter') {
+                if (ev.key == 'Enter' || ev.key == 'NumpadEnter') {
                     ev.preventDefault();
                     if (this.value == '') return;
                     let numberChat = TEXTAREAS.indexOf(this);
